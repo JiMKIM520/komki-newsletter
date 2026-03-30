@@ -7,11 +7,11 @@ import { GhostPost } from "@/lib/ghost";
 
 function formatDate(dateStr: string | null): string {
   if (!dateStr) return "";
-  return new Date(dateStr).toLocaleDateString("ko-KR", {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-  });
+  const d = new Date(dateStr);
+  const y = String(d.getUTCFullYear()).slice(2);
+  const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(d.getUTCDate()).padStart(2, "0");
+  return `${y}.${m}.${day}`;
 }
 
 export default function LatestArticles({ posts }: { posts: GhostPost[] }) {
