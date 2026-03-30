@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { GhostTag } from "@/lib/ghost";
 
-export default function Navbar() {
+export default function Navbar({ tags }: { tags?: GhostTag[] }) {
   return (
     <header className="bg-[#fdf6ec] border-b border-[#e8d9c0] py-4">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -11,20 +12,19 @@ export default function Navbar() {
           komki
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            href="#articles"
-            className="text-sm text-[#8b7355] hover:text-[#2d2416] transition-colors duration-200"
-          >
-            아티클
-          </Link>
-          <Link
-            href="#about"
-            className="text-sm text-[#8b7355] hover:text-[#2d2416] transition-colors duration-200"
-          >
-            소개
-          </Link>
-        </nav>
+        {/* 카테고리 태그 */}
+        {tags && tags.length > 0 && (
+          <nav className="hidden md:flex items-center gap-2">
+            {tags.slice(0, 6).map((tag) => (
+              <span
+                key={tag.id}
+                className="text-xs border border-[#e8d9c0] rounded-full px-3 py-1 text-[#8b7355] hover:border-[#d97706] hover:text-[#2d2416] transition-colors duration-200 cursor-default"
+              >
+                {tag.name}
+              </span>
+            ))}
+          </nav>
+        )}
 
         <Link
           href="#subscribe"
