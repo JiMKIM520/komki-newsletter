@@ -29,31 +29,25 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* 하단 정보 */}
-      <div className="bg-[#fff8ef] border-t border-[#e8d9c0]">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link
-            href="/"
-            className="font-serif text-lg text-[#2d2416] hover:text-[#d97706] transition-colors"
-          >
-            komki
+      {/* 플레이풀 Footer */}
+      <div className="bg-[#fdf6ec] border-t border-[#e8d9c0] py-10 text-center">
+        <p className="font-serif text-4xl md:text-5xl font-black text-[#2d2416] tracking-widest">
+          KOMKI
+        </p>
+        <p className="text-[10px] font-semibold text-[#d97706] tracking-[0.2em] mt-2">
+          &apos;read&apos; enjoy yourself!
+        </p>
+        <div className="mt-6 flex items-center justify-center gap-6 text-xs text-[#b8a898]">
+          <Link href="/privacy" className="hover:text-[#8b7355] transition-colors">
+            개인정보처리방침
           </Link>
-
-          <div className="flex items-center gap-6 text-xs text-[#b8a898]">
-            <Link href="/privacy" className="hover:text-[#8b7355] transition-colors">
-              개인정보처리방침
-            </Link>
-            <a
-              href="mailto:hello@komki.co.kr"
-              className="hover:text-[#8b7355] transition-colors"
-            >
-              hello@komki.co.kr
-            </a>
-          </div>
-
-          <p className="text-xs text-[#b8a898]">
-            © {new Date().getFullYear()} komki
-          </p>
+          <a
+            href="mailto:hello@komki.co.kr"
+            className="hover:text-[#8b7355] transition-colors"
+          >
+            hello@komki.co.kr
+          </a>
+          <span>© {new Date().getFullYear()} komki</span>
         </div>
       </div>
     </footer>
